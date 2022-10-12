@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		/*
+		문서가 실행되면 ... 웹브라우저 메모리에 body 안에 요소가 로딩...
+		메모리에 DOM tree 형태호 .... 필요에 따라서 접근 ... 놀면 되요
+		
+		DOM
+		html
+		 |
+		head - body
+		
+		Dom script : getElementById
+		*/
+		function print() {
+			let ele = document.getElementById("demo");
+			console.log(ele);
+			ele.innerHTML="아 배고프다"
+		}
+		
+	</script>
+</head>
+<body>
+	<button onclick="">클릭하세요</button>
+	<p id="demo">demo라는 id는 p태그의 주소(식별자)</p>
+</body>
+</html>
