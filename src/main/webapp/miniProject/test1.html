@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </style>
+    <script>
+
+// const container = documnet.getElementByClassName('container');
+// const title = ['과일', '음식'];
+// const fruits = ['사과', '바나나', '체리'];
+// const food = ['김치', '찌개', '부침개']
+// const NO = ['1st', '2nd', '3rd'];
+
+// let template = `
+//     <h1>
+//         {{__category_title__}}
+//     </h1>
+//     <ul>
+//         {{__category_list__}}
+//     </ul>
+// `;
+
+// const List = [];
+// function makeList(category) {
+//     for(let i =0; i<3; ++i) {
+//         List.push(`
+//             <li>
+//                 <h2>NO[i]</h2>
+//                 category[i]
+//             </li>
+//         `);
+//     }
+// }
+// makeList(fruits);
+// template = template.replace('{{__category_title__}}', title[1]);
+// template = template.replace('{{__category_list__}}', List.join(''));
+// container.innerHTML = template;
+
+// makeList(food);
+// template = template.replace('{{__category_title__}}', title[2]);
+// template = template.replace('{{__category_list__}}', List.join(''));
+// container.innerHTML = template;
+
+
+// document.write("<table width='80%' border='1' style='margin: auto; text-align: center'>");
+ 
+//  // for문 시작
+//  for ( var i=0; i<6 ; i++) {
+//   document.write("<tr>");    // <tr> : 행추가.
+ 
+
+//   // 이중 for문 시작
+//   for ( var j=0; j<7 ; j++) {
+//    var txt="(" + i + "," + j + ")";    // 테이블각 셀에 (행,열) 값을 출력하기위해 정의된 String
+//    document.write("<td>"+ txt +"</td>");     // <td> : 열추가.
+//   } //end for j
+  
+
+//   document.write("</tr>");
+//  } //end for i
+
+//  document.write("</table>");   // 테이블 태그를 닫는다.
+
+
+
+
+var cnt = 0;
+
+var yIndex = 3;
+var xIndex = 3;
+var div1 = [];
+var divE = document.getElementById('div1');
+
+
+
+window.onload = function(){
+   var img = document.createElement("img");
+      img.src = "../images/KakaoTalk_20220726_023511513.jpg";
+      var src = document.getElementById("x");
+      src.appendChild(img);
+   div1 = [];
+   for(var y = 0; y < yIndex; y++){
+      div1[y] = [];
+      for(var x = 0 ; x < xIndex; x++){
+        var idx = y * xIndex + x;
+         div1[y][x] = idx + 1;
+      }
+   }
+}
+/*  document.getElementById('myImage').src='pic_bulbon.gif */
+function updateArray(){
+ /*   divE.empty();  */
+
+   
+   
+   var htmsmalll = '';
+   for(var y = 0; y < 3; y++){
+
+      for(var x = 0 ; x < 3 ; x++){
+         /* html +=  src; */
+            var img = document.createElement("img");
+   img.src = "../images/KakaoTalk_20220726_023511513.jpg";
+   var src = document.getElementById("x");
+         src.appendChild(img);
+      }
+
+   } 
+/*    boardE1.html(html); */
+}
+
+
+
+    </script>
+</head>
+<body>  
+
+  <div id="x"></div>
+  <div></div>
+  <button class="button" onclick="updateArray()" type="button" >Click</button>
+
+  <table id='testTable'>
+    <thead>
+      <tr>
+        <th>번호</th>
+        <th>이름</th>
+        <th>나이</th>
+        <th>지역</th>
+        <th>점수</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>김ㅇㅇ</td>
+        <td>40</td>
+        <td>경기도</td>
+        <td>75</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>이ㅇㅇ</td>
+        <td>24</td>
+        <td>충청남도</td>
+        <td>85</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>박ㅇㅇ</td>
+        <td>26</td>
+        <td>전라북도</td>
+        <td>90</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+<script>
+const $table = document.getElementById('testTable'); // table 엘리먼트 취득
+
+console.log($table.rows.length);  // 3, 행 갯수 출력
+
+</script>
+</html>

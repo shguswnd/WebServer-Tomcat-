@@ -33,40 +33,98 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 
 </style>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=abf2a7257c4b749ef4da5b9ded2f21fe"></script>
 <script type="text/javascript">
- var cnt = 0;
- 
- var yIndex = 3;
- var xIndex = 3;
- var div1 = [];
-//  var divE = $('div1');
 
 
- function initArray(){
-    div1 = [];
-    for(var y = 0; y < yIndex; y++){
-       div1[y] = [];
-       for(var x = 0 ; x < xIndex; x++){
-         var idx = y * xIndex + x;
-          div1[y][x] = idx + 1;
-       }
-    }
- }
-/*  document.getElementById('myImage').src='pic_bulbon.gif */
- function updateArray(){
-/*     divE.empty();
-    var htmsmalll = '';
-    for(var y = 0; y < yIndex; y++){
-       html += '<div>';
-       for(var x = 0 ; x < xIndex ; x++){
-    	   html += <img scr = "../images/KakaoTalk_20220726_023511513.jpg"/
-    	   >;
-    	   document.getElementById('drag1').src='KakaoTalk_20220726_023511513.jpg';
-           html += <img src="../images/KakaoTalk_20220726_023511513.jpg" draggable="true" ondragstart="drag(event)" alt="boy" class="w3-image" id="drag1" width="992" height="1108" >; 
-       }
-        html += '</div>'; 
-    } */
- }
+//위치 정보 출력
+/* function getLocation(){
+    if (navigator.geolocation) {
+           navigator.geolocation.getCurrentPosition(showPosition, showError);
+         } else { 
+           x.innerHTML = "Geolocation is not supported by this browser.";          
+         }
+}
+function showPosition(position) {
+     x.innerHTML = "Latitude: " + position.coords.latitude + 
+     "<br>Longitude: " + position.coords.longitude;
+   } */
+
+//카카오맵
+window.onload = function(){
+      
+   if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+         var lat = lat = position.coords.latitude,
+          lon = position.coords.longitude;
+         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+         mapOption = { 
+                 center: new kakao.maps.LatLng(lat, lon), // 지도의 중심좌표
+                 level: 3 // 지도의 확대 레벨
+             };
+         // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+         var map = new kakao.maps.Map(mapContainer, mapOption);
+         
+         var markerPosition  = new kakao.maps.LatLng(lat,lon);
+         
+         var marker = new kakao.maps.Marker({
+             position: markerPosition
+         });
+
+         // 마커가 지도 위에 표시되도록 설정합니다
+         marker.setMap(map);
+         
+      });
+   }
+       
+   
+   
+}
+
+
+   var cnt = 0;
+
+   var yIndex = 3;
+   var xIndex = 3;
+   var div1 = [];
+   var divE = document.getElementById('div1');
+
+
+
+   window.onload = function(){
+      var img = document.createElement("img");
+         img.src = "../images/KakaoTalk_20220726_023511513.jpg";
+         var src = document.getElementById("x");
+         src.appendChild(img);
+      div1 = [];
+      for(var y = 0; y < yIndex; y++){
+         div1[y] = [];
+         for(var x = 0 ; x < xIndex; x++){
+           var idx = y * xIndex + x;
+            div1[y][x] = idx + 1;
+         }
+      }
+   }
+   /*  document.getElementById('myImage').src='pic_bulbon.gif */
+   function updateArray(){
+    /*   divE.empty();  */
+
+      
+      
+      var htmsmalll = '';
+      for(var y = 0; y < 3; y++){
+
+         for(var x = 0 ; x < 3 ; x++){
+            /* html +=  src; */
+               var img = document.createElement("img");
+      img.src = "../images/KakaoTalk_20220726_023511513.jpg";
+      var src = document.getElementById("x");
+            src.appendChild(img);
+         }
+
+      } 
+   /*    boardE1.html(html); */
+   }
  
 function allowDrop(ev) {
      ev.preventDefault();
@@ -181,10 +239,10 @@ function allowDrop(ev) {
     <h1 class="w3-jumbo"><span class="w3-hide-small">Happy Life</span> With 3 Team</h1>
     <p>3조와 함께 하세요.</p>
     
-    
+    <div id="x"></div>
     
     <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <img src="../images/KakaoTalk_20220726_023511513.jpg" draggable="true"ondragstart="drag(event)" alt="boy" class="w3-image" id="drag1" width="992" height="1108" >
+    <img src="../images/KakaoTalk_20220726_023511513.jpg" draggable="true" ondragstart="drag(event)" alt="boy" class="w3-image" id="drag1" width="992" height="1108" >
     </div>
     <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)" width="992" height="1108"></div>
  
@@ -193,10 +251,17 @@ function allowDrop(ev) {
   <!-- About Section -->
   
       
+<div id="x"></div>
+<div></div>
+<button class="button" onclick="updateArray()" type="button" >Click</button>
+
+
+<div id = "div1"></div>
 
 
 
 
+  <div id="map" style="width:700px;height:700px;"></div>
 
      
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="SIGN IN">

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   <!-- 
+      함수를 생성하고 onclick 이벤트에서 함수를 호출시
+      value값을 가져와서 우편번호와 주소를 분리해서
+      200-300
+      서울시 강남구 역삼동
+      부모창에 : window.opener 통해서 열어준 브라우저에 값을 넘겨주기
+      zipcode와 addr에 값을 전달
+      마지막으로 현재창 닫기
+
+   -->
+   <script>
+      
+      function openChild(obj){
+
+         //  window.opener.document.mainform.addr.attr.obj.value;
+         //  attr('value',obj.value);
+
+          let zip = obj.value.substring(0,7);
+          let addr = obj.value.substr(8);
+
+         // console.log(zip);
+         // window.opener.mainform.zipcode.value = zip;
+         // opener.mainform.addr.value = addr;
+
+
+         window.opener.document.mainform.zipcode.value = zip;
+          window.opener.mainform.addr.value = addr;
+          
+          window.close();
+         
+         // // opener.document.zip = opener.document.getElementsByName("btn").value;
+          window.close();
+      }
+   </script>
+</head>
+<body>
+   <h3>DB연결 검색한 결과 출력된 화면(선택)</h3>
+	<form action="" name="zipform">
+		<input type="button" value="200-300 서울시 강남구 역삼동" name="btn" onclick="openChild(this)"><br>
+		<input type="button" value="200-400 경기도 성남시 삼평동" name="btn" onclick="openChild(this)"><br>
+		<input type="button" value="300-500 제주시 서귀포동"     name="btn" onclick="openChild(this)"><br>	
+	</form>
+</body>
+</html>

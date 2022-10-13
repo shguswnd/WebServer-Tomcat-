@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+  <script type="text/javascript">
+      /*
+      javascript 다양한 내장 객체 제공 : new 통해서 ... 이미 생성된 객체(그냥 사용)
+      */
+      let today = new Date();
+      console.log(today);
+      console.log(today.getFullYear());
+      console.log(today.getMonth()+1);
+      console.log(today.getDate());
+      console.log(today.getHours());
+      console.log(today.getMinutes());
+      console.log(today.getSeconds());
+      console.log(today.getDay());
+
+      //JAVA : Math.Random() >> static 함수 
+      console.log(Math.random()); //0<= 범위 < 1
+      console.log(parseInt(Math.random()*45)+1);
+
+      //javaScript 로또 프로그램
+
+      console.log(Math.round(3.5678)); //4 반올림
+      console.log(Math.max(3,8,99,55,10));
+
+      //POINT 문자열 관련함수
+      let str = "ABCDEF";
+
+      // document.write();
+
+      //document가 무조건 앞에 붙는다
+      with(document){
+         write(str +"<br>");
+         write(str.length +"<br>");
+         write(str.charAt(2) +"<br>");
+         write(str.indexOf("D")+"<br>");
+         write(str.concat("홍길동")+"<br>");
+
+
+         //slice(start, end)
+         //substring(start, end)
+         //substr(start, length)
+
+         let str2 = str.replace("E", "zzzzzzzzz");
+         write(str2 + "<br>");
+         //str="ABCDEF"
+         write(str.substring(2,4) + "<br>"); //CD
+         write(str.substring(1,1) + "<br>"); //
+         write(str.substring(1,2) + "<br>"); //자기자신 B
+         write(str.substring(1) + "<br>"); //BCDEF
+
+         let strarr = "A B C D";
+         let arr = strarr.split(" "); //return Array
+         write(arr); //toString() 재정의했다 -> javaScript의 array가 
+
+         //TODAY POINT
+         //JAVA : 개선된 for문
+         //for(String s : arr){s값 출력}
+
+         //MS(c#) , JavaScript >> in
+         //javascript : for(let s in arr)
+
+         write("<br>");
+         for(let index in arr){ //약속 개선된 for 문 변수명 : index
+            //write(index + "<br>");
+            write(arr[index] + "<br>");
+         }
+         
+      }
+   </script>
+</head>
+<body>
+   
+</body>
+</html>
